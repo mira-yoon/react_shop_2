@@ -1,4 +1,15 @@
-export const data = [ /* http://test.api.weniv.co.kr/mall */
+import { createContext } from 'react';
+
+async function fetchAPI(){
+  const res = await fetch('http://test.api.weniv.co.kr/mall');
+  const result = await res.json();
+  return result;
+}
+
+export const Data = createContext(fetchAPI())
+
+/*
+export const data = [ 
       {
         "id": 1,
         "productName": "버그를 Java라 버그잡는 개리씨 키링 개발자키링 금속키링",
@@ -150,3 +161,4 @@ export const data = [ /* http://test.api.weniv.co.kr/mall */
         "modDate": "2022-02-28"
       }
     ];
+*/    
